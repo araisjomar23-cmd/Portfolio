@@ -45,7 +45,12 @@
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; background:var(--ink); }
+
+  html{ transition: background .3s ease; scroll-behavior:smooth; background:var(--ink); }
+
+  body, .navbar, .panel, .chip, .project-card, .terminal, .id-card, .nav-mobile-panel, .lightbox-panel{
+    transition: background .3s ease, border-color .3s ease, color .3s ease;
+  }
   body{
     background:var(--ink);
     color:var(--paper);
@@ -54,6 +59,7 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
+
   img{ max-width:100%; display:block; }
   a{ color:inherit; }
   ul{ list-style:none; }
@@ -392,6 +398,9 @@
   .footer-status{ display:flex; align-items:center; gap:.5rem; color:var(--green); }
   .footer-status .dot{ width:6px; height:6px; border-radius:50%; background:var(--green); animation: blink 1.6s steps(1) infinite; }
 
+   #themeIcon{ transition: transform .4s ease, opacity .3s ease; color: var(--fog); }
+  .theme-toggle:hover #themeIcon{ color: var(--amber); }
+  
   /* ---------- responsive ---------- */
   @media (max-width: 860px){
     .hero-grid{ grid-template-columns:1fr; }
@@ -425,12 +434,17 @@
     <div class="nav-links">
       <a href="#about">ABOUT</a>
       <a href="#stack">STACK</a>
+      <a href="#certifications">CERTS</a>
       <a href="#projects">PROJECTS</a>
       <a href="#contact">CONTACT</a>
       <span class="status-pill"><span class="dot"></span>OPEN TO WORK</span>
     </div>
     <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">🌙</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
+  <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path id="moonPath" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -441,6 +455,7 @@
   <div class="wrap">
     <a href="#about">ABOUT</a>
     <a href="#stack">STACK</a>
+    <a href="#certifications">CERTS</a>
     <a href="#projects">PROJECTS</a>
     <a href="#contact">CONTACT</a>
     <span class="status-pill" style="width:fit-content;"><span class="dot"></span>OPEN TO WORK</span>
@@ -455,8 +470,8 @@
       <p class="hero-sub">BSIS Student — Aspiring Full-Stack Developer</p>
       <p class="lead">I build practical, full-stack systems, from the database up to the
         interface, for organizations that need software people will actually use.
-        I've shipped three so far: a civic tech platform for a local government office,
-        a parenting platform concept, and an event venue booking site.</p>
+        I've shipped four so far: a civic tech platform for a local government office,
+        a parenting platform concept, an event venue booking site, and a full e-commerce platform.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects</a>
         <a href="#contact" class="btn btn-ghost">Get In Touch</a>
@@ -473,7 +488,7 @@
             <img src="img/Jomar 2x2 ID.jpg" alt="Jomar">
           </div>
           <div>
-            <div class="id-card-name">Jomar</div>
+            <div class="id-card-name">Jomar C. Arais</div>
             <div class="id-card-role">BSIS · DNSC</div>
           </div>
         </div>
@@ -503,10 +518,11 @@
         <span class="corner bl"></span><span class="corner br"></span>
         <p>I'm a <strong>BSIS student at Davao del Norte State College</strong>, focused on
           software that solves real, practical problems — the kind an office, a school, or
-          a local program actually relies on day to day. So far I've shipped three systems:
+          a local program actually relies on day to day. So far I've shipped four systems:
           the <strong>CYDO Panabo City MEAL System</strong> for the City Youth Development
           Office, <strong>Cradle Care</strong>, a parenting platform built with a small team,
-          and <strong>EvBook</strong>, an event venue booking site for Panabo City.</p>
+          <strong>EvBook</strong>, an event venue booking site for Panabo City, and
+          <strong>ShopWhere</strong>, a full-stack e-commerce platform.</p>
         <p>I like working across the whole stack: the interface, the logic in between, and
           the database underneath. I'm currently looking for internship and junior developer
           opportunities where I can keep building things people use.</p>
@@ -525,8 +541,43 @@
         <div class="chip"><span class="chip-check">✓</span>CSS</div>
         <div class="chip"><span class="chip-check">✓</span>Bootstrap</div>
         <div class="chip"><span class="chip-check">✓</span>JavaScript</div>
+        <div class="chip"><span class="chip-check">✓</span>TypeScript</div>
         <div class="chip"><span class="chip-check">✓</span>PHP</div>
+        <div class="chip"><span class="chip-check">✓</span>Next.js</div>
         <div class="chip"><span class="chip-check">✓</span>Supabase</div>
+      </div>
+    </div>
+  </section>
+
+   <section class="section" id="certifications">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">[ CERTIFICATIONS ]</span>
+        <h2>Credentials & training.</h2>
+      </div>
+      <div class="stack-grid reveal">
+
+        <div class="chip" style="flex-direction:column; align-items:flex-start; gap:.35rem; padding:1.1rem;">
+          <img src="img/NC2.png" alt="NC2 Certificate" style="width:100%; border-radius:var(--radius); margin-bottom:.35rem; cursor:zoom-in;">
+          <span style="color:var(--amber); font-size:.68rem; letter-spacing:.06em;">TESDA</span>
+          <span>Computer Systems Servicing NC II</span>
+          <span style="color:var(--fog); font-size:.72rem;">October 2023</span>
+        </div>
+
+        <div class="chip" style="flex-direction:column; align-items:flex-start; gap:.35rem; padding:1.1rem;">
+          <img src="img/Certificate of Completion.png" alt="Certificate of Completion" style="width:100%; border-radius:var(--radius); margin-bottom:.35rem; cursor:zoom-in;">
+          <span style="color:var(--amber); font-size:.68rem; letter-spacing:.06em;">TESDA · DepEd · Holy Child College</span>
+          <span>Certificate of Completion — CSS</span>
+          <span style="color:var(--fog); font-size:.72rem;">July 2023</span>
+
+          <hr style="width:100%; border:none; border-top:1px solid var(--line); margin:.75rem 0;">
+
+          <img src="img/Cert CyberSec.png" alt="New Certificate" style="width:100%; border-radius:var(--radius); margin-bottom:.35rem; cursor:zoom-in;">
+          <span style="color:var(--amber); font-size:.68rem; letter-spacing:.06em;">ISSUER</span>
+          <span>CyberSecurity Essentials</span>
+          <span style="color:var(--fog); font-size:.72rem;">May 2026</span>
+        </div>
+        
       </div>
     </div>
   </section>
@@ -539,6 +590,32 @@
       </div>
 
       <div class="projects-grid">
+
+        <!-- ShopWhere — NEW -->
+        <article class="project-card reveal" data-title="ShopWhere" data-type="WEB APP · E-COMMERCE" data-desc="A full-stack e-commerce platform where customers can browse products by category, view featured items, and manage their orders — built with Next.js, TypeScript, and Supabase. Covers the full shopping flow from product discovery through to account and order management." data-tags="Next.js,TypeScript,Supabase,E-Commerce,Full-Stack">
+          <div class="project-media">
+            <img src="img/ShopWhere.jpg" alt="ShopWhere e-commerce platform">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">WEB APP · E-COMMERCE</span>
+              <span class="project-status">● LIVE DEMO</span>
+            </div>
+            <h3>ShopWhere</h3>
+            <p>A full-stack e-commerce platform where customers can browse products by
+              category, view featured items, and manage their orders. Covers the full
+              shopping flow from product discovery through to account and order management.</p>
+            <div class="tag-list">
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">E-Commerce</span>
+              <span class="tag">Full-Stack</span>
+            </div>
+            <a class="project-link" href="https://shopwhere.vercel.app" target="_blank" rel="noopener">[ VIEW LIVE ]</a>
+          </div>
+        </article>
+
         <article class="project-card reveal" data-title="CYDO Panabo City MEAL System" data-type="CIVIC TECH · SYSTEM" data-desc="A Monitoring, Evaluation, Accountability and Learning platform built for the City Youth Development Office — Panabo City. Includes a full admin dashboard and a participant-facing portal for tracking program outcomes." data-tags="PHP,Supabase,Bootstrap,Admin Dashboard,Participant Portal">
           <div class="project-media">
             <img src="img/CYDO Dashboard.png" alt="CYDO Panabo City MEAL System admin dashboard">
@@ -761,8 +838,7 @@
         <span class="corner tl"></span><span class="corner tr"></span>
         <span class="corner bl"></span><span class="corner br"></span>
         <p>Open to internships, junior developer roles, and freelance work. The fastest way
-          to reach me is email — feel free to also check out my code or connect on LinkedIn.</p>
-        <!-- Your real contact links are set below. Update anytime. -->
+          to reach me is email, feel free to also check out my code or connect on LinkedIn.</p>
         <div class="contact-grid">
           <a class="btn-bracket" href="mailto:arais.jomar@dnsc.edu.ph">[ EMAIL ]</a>
           <a class="btn-bracket" href="https://github.com/araisjomar23-cmd" target="_blank" rel="noopener">[ GITHUB ]</a>
@@ -800,18 +876,18 @@
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
-    themeToggle.textContent = '☀️';
+    themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
   }
   themeToggle.addEventListener('click', () => {
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
     if (isLight) {
       document.documentElement.removeAttribute('data-theme');
       localStorage.setItem('theme', 'dark');
-      themeToggle.textContent = '🌙';
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
     } else {
       document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
-      themeToggle.textContent = '☀️';
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
     }
   });
 
@@ -883,7 +959,7 @@
     if (e.key === 'Escape') closeLightbox();
   }
 
-  document.querySelectorAll('.project-media img').forEach(img => {
+  document.querySelectorAll('.project-media img, .chip img').forEach(img => {
     img.addEventListener('click', () => openLightbox(img));
   });
 
@@ -932,9 +1008,9 @@
     { type: 'prompt', text: '$ whoami' },
     { type: 'out',    text: 'jomar — BSIS student, DNSC' },
     { type: 'prompt', text: '$ ls projects/' },
-    { type: 'out',    text: 'cydo-meal-system   cradle-care   evbook' },
+    { type: 'out',    text: 'cydo-meal-system   cradle-care   evbook   shopwhere' },
     { type: 'prompt', text: '$ status --check' },
-    { type: 'out',    text: 'stack: HTML · CSS · Bootstrap · JS · PHP · Supabase' },
+    { type: 'out',    text: 'stack: HTML · CSS · JS · TS · PHP · Next.js · Supabase' },
     { type: 'prompt', text: '$ availability' },
     { type: 'out',    text: 'open to internship & developer roles' },
   ];
